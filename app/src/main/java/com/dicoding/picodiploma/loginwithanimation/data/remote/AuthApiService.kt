@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.loginwithanimation.data.remote
 
+import com.dicoding.picodiploma.loginwithanimation.data.remote.responses.LoginResponse
 import com.dicoding.picodiploma.loginwithanimation.data.remote.responses.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -13,4 +14,11 @@ interface AuthApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): RegisterResponse
+
+    @FormUrlEncoded
+    @POST("login")
+    suspend fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): LoginResponse
 }
